@@ -104,7 +104,7 @@
         New: 17,
         TaggedTemplate: 18,
         Member: 19,
-        Primary: 29
+        Primary: 20
     };
 
     BinaryPrecedence = {
