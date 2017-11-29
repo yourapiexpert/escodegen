@@ -2495,9 +2495,13 @@
         JSXClosingElement: function (expr, precedence, flags) {
           return [
             '</',
-            this.generateExpression(expr.name, Precedence.Sequence, 0),
+            expr.name ? this.generateExpression(expr.name, Precedence.Sequence, 0) : '',
             '>'
           ];
+        },
+
+        JSXFragment:  function (expr, precedence, flags) {
+          return this.JSXElement(expr, precedence, flags);
         },
 
         JSXElement: function (expr, precedence, flags) {
@@ -2592,8 +2596,10 @@
         JSXOpeningElement: function (expr, precedence, flags) {
           var result = ['<'], that = this;
 
-          var fragment = this.generateExpression(expr.name, Precedence.Sequence, 0);
-          result.push(fragment);
+          if (expr.name) {
+            var fragment = this.generateExpression(expr.name, Precedence.Sequence, 0);
+            result.push(fragment);
+          }
 
           var xjsFragments = [];
           for (var i = 0, len = expr.attributes.length; i < len; ++i) {
