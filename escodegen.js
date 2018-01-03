@@ -2634,7 +2634,7 @@
           return result;
         },
 
-      JSXSpreadAttribute: function (expr, precedence, flags) {
+        JSXSpreadAttribute: function (expr, precedence, flags) {
           return [
             '{...',
             this.generateExpression(expr.argument, Precedence.Sequence, {
@@ -2643,6 +2643,10 @@
             }),
             '}'
           ];
+        },
+
+        JSXText: function (expr, precedence, flags) {
+          return expr.raw;
         }
     };
 
