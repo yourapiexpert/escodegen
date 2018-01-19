@@ -2504,6 +2504,14 @@
           return this.JSXElement(expr, precedence, flags);
         },
 
+        JSXOpeningFragment:  function (expr, precedence, flags) {
+          return this.JSXOpeningElement(expr, precedence, flags);
+        },
+
+        JSXClosingFragment:  function (expr, precedence, flags) {
+          return this.JSXClosingElement(expr, precedence, flags);
+        },
+
         JSXElement: function (expr, precedence, flags) {
           var result = [], that = this;
 
