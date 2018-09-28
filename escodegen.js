@@ -2519,7 +2519,7 @@
             base += indent;
           }
 
-          var fragment = this.generateExpression(expr.openingElement, Precedence.JSXElement, {
+          var fragment = this.generateExpression(expr.openingElement || expr.openingFragment, Precedence.JSXElement, {
             allowIn: true,
             allowCall: true
           });
@@ -2550,6 +2550,9 @@
 
           if (expr.closingElement) {
             fragment = that.generateExpression(expr.closingElement, Precedence.JSXElement, 0);
+            result.push(fragment);
+          } else if (expr.closingFragment) {
+            fragment = that.generateExpression(expr.closingFragment, Precedence.JSXElement, 0);
             result.push(fragment);
           }
 
