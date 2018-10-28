@@ -31,9 +31,9 @@
         "url": "http://github.com/wallabyjs/escodegen.git"
     },
     "dependencies": {
-        "estraverse": "^1.9.1",
-        "esutils": "^2.0.2",
         "esprima": "^2.7.1",
+        "estraverse": "^4.2.0",
+        "esutils": "^2.0.2",
         "optionator": "^0.8.1"
     },
     "optionalDependencies": {
